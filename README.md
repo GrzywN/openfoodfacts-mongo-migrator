@@ -1,15 +1,25 @@
 # openfoodfacts-mongo-migrator
 
-To install dependencies:
+## To install dependencies:
 
 ```bash
 bun install
 ```
 
-To run:
+## Prepare mongo database:
 
 ```bash
-bun run index.ts
+docker-compose up -d
 ```
 
-This project was created using `bun init` in bun v1.0.6. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+## Prepare environmental variables
+
+```bash
+cp .env.template .env
+```
+
+## To run:
+
+```bash
+bun run start
+```
