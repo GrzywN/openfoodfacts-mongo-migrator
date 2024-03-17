@@ -10,12 +10,12 @@ const sl: Partial<{
 main().finally(closeDatabaseConnection);
 
 async function main() {
-  validatedEnv();
-  await mongoConnected();
+  validateEnv();
+  await connectToMongo();
   migrateData();
 }
 
-function validatedEnv() {
+function validateEnv() {
   const envKeys = ["MONGODB_URI"];
 
   for (const key of envKeys) {
@@ -30,7 +30,7 @@ function validatedEnv() {
   logger.info(logMessage("Environmental variables validated successfully"));
 }
 
-async function mongoConnected() {
+async function connectToMongo() {
   logger.info(logMessage("Initializing MongoClient"));
 
   try {
@@ -59,3 +59,4 @@ function closeDatabaseConnection() {
 
   sl?.db?.close();
 }
+
